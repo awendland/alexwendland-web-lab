@@ -9,6 +9,7 @@ foreach ($demoConfigFiles as $key => $value) {
 	$config = parse_ini_file($value);
 	if (array_keys_exist($config, array('name', 'url', 'description'))) {
 		$config['url'] = substr($value, 0, -7) . $config['url'];
+		$config['id'] = substr($value, 8, -8);
 		$demos[] = $config;
 	}
 }
@@ -30,7 +31,7 @@ foreach ($demoConfigFiles as $key => $value) {
 			<ul>
 				<?php
 				foreach ($demos as $demo) {
-					echo('<li><a href="' . $demo["url"] . '">' . $demo["name"] . '</a><br><div class="description">' . $demo['description'] . '</div></li>');
+					echo('<li id="' . $demo["id"] . '" data-url="' . $demo['url'] . '"><a href="#' . $demo["id"] . '">' . $demo["name"] . '</a><br><div class="description">' . $demo['description'] . '</div></li>');
 				}
 				?>
 			</ul>
