@@ -1,0 +1,145 @@
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+
+html, body {
+	-webkit-text-size-adjust: none;
+	font-family: 'Bree Serif', serif;
+}
+
+#dialog-wrapper {
+	position: absolute;
+	z-index: 11;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#dialog {
+	width: 280px;
+	margin: 70px auto 0 auto;
+	padding: 5px 10px 10px 15px;
+}
+
+#dialog h1 {
+	margin-top: 0;
+}
+
+#dialog-text {
+	text-align: center;
+	margin: 0 auto 10px auto;
+}
+
+#dialog-buttons {
+	width: 200px;
+	margin: 0 auto 5px auto;
+	text-align: justify;
+	-ms-text-justify: distribute-all-lines;
+	text-justify: distribute-all-lines;
+}
+
+#dialog-buttons button {
+	display: inline-block;
+}
+
+#dialog-buttons button:last-child {
+	float: right;
+	clear: both;
+}
+
+#dialog-button:after {
+	content: '';
+	width: 100%; /* Ensures there are at least 2 lines of text, so justification works */
+	display: inline-block;
+}
+
+#overlay {
+	background-color: #000;
+	opacity: .7;
+	filter: alpha(opacity=70);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+
+.container {
+	background: #f3f3f3;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+h1 {
+	font-family: 'Bree Serif', serif;
+	text-align: center;
+	font-weight: 300;
+	font-size: 28px;
+	line-height: 34px;
+	color: #414848;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	margin-bottom: 10px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input {
+	padding: 15px 25px;
+	font-family: 'Bree Serif', serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #6d6e6e;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	background: #fff;
+	border: 0px solid #f3f3f3;
+	border-radius: 5px;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-transition: box-shadow linear .3s;
+	transition: box-shadow linear .3s;
+}
+
+input:focus {
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50), 0 0 10px #9ecaed;
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50), 0 0 10px #9ecaed;
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50), 0 0 10px #9ecaed;
+}
+
+/* Login button */
+button {
+	color: #FFF;
+	font-size: 17px;
+	border-radius: 5px;
+	border: solid 1px #D94E3B;
+	background: #cb3b27;
+	text-align: center;
+	padding: 5px 15px;
+	-webkit-transition: all 0.1s;
+	-moz-transition: all 0.1s;
+	transition: all 0.1s;
+	-webkit-box-shadow: 0px 7px 0px #84261a;
+	-moz-box-shadow: 0px 7px 0px #84261a;
+	box-shadow: 0px 7px 0px #84261a;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+button:active {
+	-webkit-box-shadow: 0px 2px 0px #84261a;
+	-moz-box-shadow: 0px 2px 0px #84261a;
+	box-shadow: 0px 2px 0px #84261a;
+	position: relative;
+	top: 5px;
+}
