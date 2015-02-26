@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Number Game #2</title>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body id="home">
+
+	<h1>Number Game #2</h1>
+	<h2>The number must be composed of each digit [1-9]. It can only use each digit once. Unaltered, it must be divisible by 9. When the last digit is removed, it must be divisible by 8. When the last two digits are removed, it must be divisible by 7. So on and so forth until it is two digits in length and is divisible by 2.</h2>
+	<hr>
+	<p>Commentary: <i>This is a brute force approach that iterates all unique permutations of the sequence 1,2,3,4,5,6,7,8,9. It tests each permutation against the division part of the given criteria. The number of iterations required to generate numbers is reported, as well as the number of permutations generated. Results are reported with the milliseconds taken to generate them in parentheses. The relevant js file computing the solution can be found at <a href="worker.js">worker.js</a>.</i></p>
+	<div id="out"></div>
+	
+	<script src="main.js"></script>
+</body>
+</html>
