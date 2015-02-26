@@ -1,4 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Molle:400italic);
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
 
 html, body {
 	margin: 0;
@@ -11,6 +19,7 @@ html, body {
 body {
 	background: url("./img/settings-bg.jpeg") repeat top left;
 	background-size: 200px 200px;
+	padding-top: 44px;
 }
 
 #top-bar {
@@ -20,21 +29,27 @@ body {
 	width: 100%;
 	box-shadow: 0px 1px 8px rgba(0,0,0,0.2);
 	z-index: 5;
-	position: relative;
+	position: absolute;
+	top: 0;
 }
 
 #top-bar #branding a {
-	line-height: 44px;
-	height: 44px;
-	text-transform: uppercase;
+	line-height: 50px;
+	height: 50px;
 	color: #fff;
 	text-decoration: none;
-	font-size: 25px;
-	font-family: "Lobster", "Helvetica", "Arial", sans-serif;
+	font-size: 44px;
+	font-family: "Molle", "Helvetica", "Arial", sans-serif;
+	font-style: italic;
 	text-shadow: 0px 5px 0px rgba(0,0,0,0.2);
 	text-align: center;
 	width: 300px;
 	display: inline-block;
+    transition: color .5s ease;
+}
+
+#top-bar #branding a:hover {
+    color: #C7253A;
 }
 
 #side-nav {
