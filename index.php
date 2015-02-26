@@ -31,7 +31,7 @@ foreach ($demoConfigFiles as $key => $value) {
 			<ul>
 				<?php
 				foreach ($demos as $demo) {
-					echo('<li id="' . $demo["id"] . '" data-url="' . $demo['url'] . '"><a href="#' . $demo["id"] . '">' . $demo["name"] . '</a><br><div class="description">' . $demo['description'] . '</div></li>');
+					echo('<li data-id="' . $demo["id"] . '" data-url="' . $demo['url'] . '"><a href="#' . $demo["id"] . '">' . $demo["name"] . '</a><br><div class="description">' . $demo['description'] . '</div></li>');
 				}
 				?>
 			</ul>

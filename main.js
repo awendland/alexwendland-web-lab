@@ -4,10 +4,13 @@ window.onload = function() {
 	window.addEventListener('hashchange', hashChanged, false);
 
 	function hashChanged() {
-	    var matchingDemoElem = document.querySelector("li#" + location.hash.replace('#', ''));
+	    var matchingDemoElem = document.querySelector("li[data-id=" + location.hash.replace('#', '') + "]");
 		if (matchingDemoElem) {
 			loadDemo(matchingDemoElem);
 		}
+	}
+	if (!location.hash) {
+		location.hash = document.querySelector("#side-nav li").getAttribute("data-id");
 	}
 	hashChanged();
 
