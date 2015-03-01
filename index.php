@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL & ~E_NOTICE);
 # Load external functions php file
 include_once './php/functions.php';
 # Get all lab.ini files in any subdirectories
