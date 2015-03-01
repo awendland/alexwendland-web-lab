@@ -91,6 +91,14 @@ window.onload = function() {
 		document.removeEventListener('mousemove', resizeCodePreview);
     });
 
+	// Listen for escape key in order to close sources view
+	document.onkeydown = function(evt) {
+	    evt = evt || window.event;
+	    if (evt.keyCode == 27) {
+			sourceView.classList.remove('loaded');
+	    }
+	};
+
 	function loadDemo(currentTarget) {
 		mainView.setAttribute('data-id', currentTarget.getAttribute('data-id'));
 		mainView.setAttribute('data-url', currentTarget.getAttribute('data-url'));
