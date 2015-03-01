@@ -1,0 +1,8 @@
+{
+	"name": "Particle Collisions - ThreeJS",
+	"description": "A javacsript particle collision model run in WebGL using ThreeJS",
+	"url": "index.html",
+	"sources": {
+		"js": ["main.js"]
+	}
+}
