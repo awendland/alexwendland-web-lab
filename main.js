@@ -8,7 +8,7 @@ window.onload = function() {
 	window.addEventListener('hashchange', hashChanged, false);
 
 	function hashChanged() {
-	    var matchingDemoElem = document.querySelector("li[data-id=" + location.hash.replace('#', '') + "]");
+	    var matchingDemoElem = document.querySelector("li[data-id=" + location.hash.replace('#', '').replace(/\//g, '\\/') + "]");
 		if (matchingDemoElem) {
 			loadDemo(matchingDemoElem);
 		}
@@ -96,6 +96,7 @@ window.onload = function() {
 	    evt = evt || window.event;
 	    if (evt.keyCode == 27) {
 			sourceView.classList.remove('loaded');
+			iframeView.style.height = null;
 	    }
 	};
 
