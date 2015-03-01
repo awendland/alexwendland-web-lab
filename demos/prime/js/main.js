@@ -25,9 +25,9 @@ var Prime = (function() {
 })();
 
 $(function() {
-    var span = $('#prime-span');
+    var pre = $('#prime-pre');
 	Prime.getPrimes(function(prime) {
         console.log(prime);
-        span.text(span.text() + prime + "\n");
+        pre.text(pre.text() + prime + "\n");
     });
 });
