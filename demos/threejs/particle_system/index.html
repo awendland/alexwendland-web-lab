@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title>three.js css3d - periodic table</title>
+		<style>
+            html, body {
+				height: 100%;
+			}
+
+			body {
+				background-color: #000000;
+				margin: 0;
+				font-family: Arial;
+				overflow: hidden;
+			}
+        </style>
+	</head>
+    <body>
+		<script src="vendor/threejs/three.min.js"></script>
+		<script src="vendor/threejs/libs/tween.min.js"></script>
+		<script src="vendor/threejs/controls/TrackballControls.js"></script>
+		<script src="vendor/threejs/renderers/CSS3DRenderer.js"></script>
+
+		<div id="container"></div>
+
+		<script>
+            // set the scene size
+            var WIDTH = window.innerWidth,
+              HEIGHT = window.innerHeight;
+            
+            // set some camera attributes
+            var VIEW_ANGLE = 45,
+              ASPECT = WIDTH / HEIGHT,
+              NEAR = 0.1,
+              FAR = 10000;
+            
+            // create a WebGL renderer, camera
+            // and a scene
+            var renderer = new THREE.WebGLRenderer();
+            var camera =
+              new THREE.PerspectiveCamera(
+                VIEW_ANGLE,
+                ASPECT,
+                NEAR,
+                FAR);
+            
+            var scene = new THREE.Scene();
+            
+            // add the camera to the scene
+            scene.add(camera);
+            
+            // the camera starts at 0,0,0
+            // so pull it back
+            camera.position.z = 800;
+            
+            // create a point light
+            var pointLight =
+                new THREE.PointLight(0xFFFFFF);
+            
+            // set its position
+            pointLight.position.x = 10;
+            pointLight.position.y = 50;
+            pointLight.position.z = 200;
+            
+            // add to the scene
+            scene.add(pointLight);
+            
+            // set up the sphere vars
+            var radius = 50,
+                segments = 32,
+                rings = 32;
+            
+            // create the sphere's material
+            var sphereMaterial =
+                new THREE.MeshLambertMaterial({
+                    color: 0xCC0000
+                });
+            
+            // create a new mesh with
+            // sphere geometry - we will cover
+            // the sphereMaterial next!
+            var sphere = new THREE.Mesh(
+                new THREE.SphereGeometry(
+                    radius,
+                    segments,
+                    rings),
+                sphereMaterial);
+            
+            // add the sphere to the scene
+            scene.add(sphere);
+            
+            // create the particle variables
+            var particleCount = 24,
+                particles = new THREE.Geometry(),
+                pMaterial =
+                  new THREE.ParticleBasicMaterial({
+                    color: 0xFFFFFF,
+                    size: 20,
+                    map: THREE.ImageUtils.loadTexture(
+                      "image/particle.png"
+                    ),
+                    blending: THREE.AdditiveBlending,
+                    transparent: true
+                  });
+            
+            // now create the individual particles
+            for(var p = 0; p < particleCount; p++) {
+            
+              // create a particle with random
+              // position values, -250 -> 250
+              var pX = Math.random() * 500 - 250,
+                  pY = Math.random() * 500 - 250,
+                  //pY = 0,
+                  pZ = Math.random() * 500 - 250,
+                  //pZ = 0,
+                  particle = new THREE.Vector3(pX, pY, pZ);
+                
+                particle.velocity = new THREE.Vector3(
+                      Math.random() - .5,              // x
+                      Math.random() - .5, // y: random vel
+                      Math.random() - .5);             // z
+            
+              // add it to the geometry
+              particles.vertices.push(particle);
+            }
+            
+            // create the particle system
+            var particleSystem =
+              new THREE.ParticleSystem(
+                particles,
+                pMaterial);                
+            
+            // Causes the closer Z-index to render in the back
+            particleSystem.sortParticles = true;
+            
+            // add it to the scene
+            scene.add(particleSystem);
+            
+            // start the renderer
+            renderer.setSize(WIDTH, HEIGHT);
+            
+            document.getElementById( 'container' ).appendChild( renderer.domElement );
+            
+            function loop() {
+                requestAnimationFrame(loop);
+                update();
+                render();
+            }
+            
+            function render() {
+                // draw!
+                renderer.render(scene, camera);
+            }
+            
+            function update() {
+                // add some rotation to the system
+                particleSystem.rotation.y += 0.0;
+                
+                var pCount = particleCount;
+                while(pCount--) {
+                
+                // get the particle
+                var particle = particles.vertices[pCount];
+                
+                // check if we need to reset
+                /*if(Math.abs(particle.y) > 250) {
+                    particle.velocity.y = Math.abs(particle.velocity.y);
+                }
+                    if(Math.abs(particle.z) > 250) {
+                    particle.velocity.z = Math.abs(particle.velocity.z);
+                }
+                    if(Math.abs(particle.x) > 250) {
+                    particle.velocity.x = Math.abs(particle.velocity.x);
+                }*/
+                
+                // update the velocity with
+                // a splat of randomniz
+                    var yDist = Math.abs(particle.y);
+//                    particle.velocity.y = yDist <= 0 ? -Math.pow(0.015*yDist+2, 5) + 1 : -Math.pow(0.015*yDist-2, 5) + 1;
+                    var yAccel = 1;//Math.abs(yDist) > 180 ? -1 : Math.abs(yDist) < 80 ? -1 : 1;
+                    var ySign = particle.y > 0 ? -1 : 1;
+                particle.velocity.y += yAccel * ySign * Math.min(1/Math.sqrt(.05*yDist), 5) * .5;
+                    var xDist = Math.abs(particle.x);
+                    /*particle.velocity.x = xDist <= 0 ? -Math.pow(0.015*xDist+2, 5) + Math.random() : Math.pow(0.015*xDist-2, 5) + Math.random();*/
+                    var xAccel = 1;//Math.abs(xDist) > 180 ? -1 : Math.abs(xDist) < 80 ? -1 : 1;
+                    var xSign = xAccel * particle.x > 0 ? -1 : 1;
+                particle.velocity.x += xSign * Math.min(1/Math.sqrt(.05*xDist), 5) * .5;
+                    var zDist = Math.abs(particle.z);
+//                    particle.velocity.z = zDist <= 0 ? -Math.pow(0.015*zDist+2, 5) + 1 : -Math.pow(0.015*zDist-2, 5) + 1;
+                    var zAccel = 1;//Math.abs(zDist) > 180 ? -1 : Math.abs(zDist) < 80 ? -1 : 1;
+                    var zSign = particle.z > 0 ? -1 : 1;
+                particle.velocity.z += zAccel * zSign * Math.min(1/Math.sqrt(.05*zDist),5) * .5;
+                
+                // and the position
+                particle.x += particle.velocity.x;
+                particle.y += particle.velocity.y;
+                particle.z += particle.velocity.z;
+                }
+                
+                // flag to the particle system
+                // that we've changed its vertices.
+                particleSystem.geometry.__dirtyVertices = true;
+
+            }
+            
+            loop();
+            
+            container.addEventListener('mousewheel', onMouseWheel, false);
+            
+            function onMouseWheel(event) {
+                event.preventDefault();
+                camera.position.z += event.wheelDeltaY * .3;
+                return false;
+            }
+            
+            window.addEventListener( 'resize', onWindowResize, false );
+            
+            function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				render();
+			}
+        </script>
+	</body>
+</html>

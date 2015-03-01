@@ -1,0 +1,9 @@
+{
+	"name": "ThreeJS - Acid-Base Titration",
+	"description": "A fully realistic Acid-Base titration written on top of ThreeJS",
+	"url": "index.html",
+	"sources": {
+		"html": ["index.html"],
+		"js": ["main.js"]
+	}
+}

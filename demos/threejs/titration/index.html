@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title>Particle Simulation - Titration</title>
+        <link rel="icon" 
+            type="image/png" 
+            href="./image/ic_particle_32.png">
+        <!-- Facebook Open Graph -->
+        <meta property="og:image" content="http://alexwendland.com/threejs/titration/image/ic_particle_256.png"/>
+		<style>
+            html, body {
+				height: 100%;
+			}
+
+			body {
+				background-color: #000000;
+				margin: 0;
+				font-family: Arial;
+				overflow: hidden;
+			}
+            
+            #counter {
+                position: absolute;
+                color: wheat;
+            }
+            
+            #counter>div {
+                margin: 0 0 1em 0;
+            }
+            
+            .chart span {
+                display: block;
+            }
+            
+            .chart canvas {
+                display: block;
+                margin: 0 auto;
+                border: 1px solid wheat;
+            }
+            
+            @media screen and (max-width: 600px) {
+                #counter {
+                    display: none;
+                }
+            }
+        </style>
+	</head>
+    <body>
+		<script src="vendor/three.min.js"></script>
+		<script src="vendor/controls/TrackballControls.js"></script>
+        
+        <div id="counter"></div>
+
+		<div id="container"></div>
+        
+        <script src="main.js"></script>
+	</body>
+</html>

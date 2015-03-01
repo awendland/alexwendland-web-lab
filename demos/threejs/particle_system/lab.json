@@ -1,0 +1,8 @@
+{
+	"name": "ThreeJS - Atom Simulation",
+	"description": "An attempt at simulating an atom using ThreeJS",
+	"url": "index.html",
+	"sources": {
+		"html": ["index.html"]
+	}
+}

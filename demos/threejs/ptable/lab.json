@@ -1,0 +1,9 @@
+{
+	"name": "ThreeJS - Periodic Table",
+	"description": "A javacsript/CSS interactive periodic table built on top of ThreeJS",
+	"url": "index.html",
+	"sources": {
+		"html": ["index.html"],
+		"css": ["css/style.less"]
+	}
+}

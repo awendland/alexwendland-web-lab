@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<title>three.js css3d - periodic table</title>
+	</head>
+	<body>
+		<script src="vendor/threejs/three.min.js"></script>
+		<script src="vendor/threejs/libs/tween.min.js"></script>
+		<script src="vendor/threejs/controls/TrackballControls.js"></script>
+		<script src="vendor/threejs/renderers/CSS3DRenderer.js"></script>
+        
+        <!-- Fittext, scales text to container -->
+		<script src="vendor/fittext.js"></script>
+        
+        <!-- JQuery, version 2.0 (doesn't support < IE9) -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <!-- JQuery dependant scrollbar -->
+        <script src="vendor/nanoscroller/jquery.nanoscroller.min.js"></script>
+        <link rel="stylesheet" href="vendor/nanoscroller/nanoscroller.css">
+        <!-- Polyfill for nanScroll support -->
+        <script src="vendor/overthrow.min.js"></script>
+        
+        <link rel="stylesheet" href="css/style.css">
+        
+		<div id="container"></div>
+		<div id="info"><a href="http://threejs.org" target="_blank">three.js css3d</a> - periodic table. <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank">info</a>.</div>
+		<div id="menu">
+			<button id="table">TABLE</button>
+			<button id="atoms">ATOMS</button>
+			<button id="ions">IONS</button>
+			<button id="electronegativity">EN</button>
+		</div>
+        <div id="data-display" class="hologram hidden">
+            <div class="close">x</div>
+            <div class="scroller nano">
+                <div class="content overthrow">
+                    <div class="header section">
+                        <div class="name text">Blahbium</div>
+                    </div>
+                    <div class="info section">
+                        <div class="symbol text medium">Ba</div>
+                        <div class="atomic-number text medium">42</div>
+                        <div class="atomic-weight text medium">42</div>
+                        <div class="electron-configuration text medium">[Xe]6s2</div>
+                        <div class="electron-negativity text medium">1.2</div>
+                        <div class="first-ionization-energy text medium">-257</div>
+                    </div>
+                </div>
+                <div class="pane"><div class="slider"></div></div>
+            </div>
+        </div>
+
+		<script src="js/main.js"></script>
+	</body>
+</html>

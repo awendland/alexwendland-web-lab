@@ -1,0 +1,230 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #000000;
+    margin: 0;
+    font-family: Arial;
+    overflow: hidden;
+}
+
+a {
+    color: #ffffff;
+}
+
+::selection {
+    background: rgba(255,255,255,.1);
+}
+
+#info {
+    position: absolute;
+    width: 100%;
+    color: #ffffff;
+    padding: 5px;
+    font-family: Monospace;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1;
+}
+
+#menu {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.hologram {
+    position: relative;
+    
+    background: rgba(0,127,127,.7);
+    box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+    border: 1px solid rgba(127,255,255,0.25);
+    &.hidden {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    .text {
+        font-weight: bold;
+        color: rgba(255,255,255,0.75);
+    
+        -webkit-filter: drop-shadow(0px 0px .05em rgba(0,255,255,0.95));
+        -moz-filter: drop-shadow(0px 0px .05em rgba(0,255,255,0.95));
+        -o-filter: drop-shadow(0px 0px .05em rgba(0,255,255,0.95));
+        -ms-filter: drop-shadow(0px 0px .05em rgba(0,255,255,0.95));
+        filter: drop-shadow(0px 0px .05em rgba(0,255,255,0.95));
+    }
+
+    .section {
+        position: relative;
+
+        .divider {
+            box-shadow: 0px 0px 6px rgba(0,255,255,0.95);
+            border-right: 2px solid rgba(255,255,255,.3);
+            position: absolute;
+            &.right {
+                height: 100%;
+                right: 0px;
+            }
+            &.bottom {
+                width: 100%;
+                bottom: 0px;
+            }
+        }
+    }
+}
+
+#data-display {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    
+    transition: opacity .5s ease, visibility .5s ease;
+    
+    border-radius: 10px;
+    
+    .close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        width: 40px;
+        border-radius: 10px;
+        cursor: pointer;
+        height: 40px;
+        font-size: 40px;
+        font-weight: bold;
+        color: rgba(255,255,255,0.75);
+        -webkit-filter: drop-shadow(0px 0px .05em rgba(0,255,255,0.95));
+        text-align: center;
+        line-height: .83;
+        z-index: 1;
+        
+        &:hover {
+            background: rgba(255,255,255,.1);
+        }
+    }
+}
+
+#data-display {
+    .content {
+        padding: 20px;
+    }
+    .pane {
+        top: 30px;
+        right: 10px;
+        bottom: 20px;
+        opacity: 0;
+    }
+    .slider {
+        box-shadow: 0px 0px 6px rgba(0,255,255,0.95);
+        background: rgba(255,255,255,.4);
+        width: 5px;
+    }
+}
+
+#data-display {
+    .name {
+        font-size: 120px;
+        line-height: 1;
+    }
+    
+    .info.section {
+        margin-top: 8px;
+        padding-left: 8px;
+        
+        .symbol::before {
+            content: "Symbol: ";
+        }
+        .atomic-number::before {
+            content: "Atomic Number: ";
+        }
+        .atomic-weight {
+            &::before {
+                content: "Atomic Weight: ";
+            }
+            &::after {
+                content: " amu";
+            }
+        }
+        .electron-configuration::before {
+            content: "Electron Configuration: ";
+        }
+        .electron-negativity::before {
+            content: "Electron Negativity: ";
+        }
+        .first-ionization-energy::before {
+            content: "First Ionization Energy: ";
+        }
+    }
+}
+
+.element {
+    width: 120px;
+    height: 160px;
+    background: rgba(0,127,127,.7);
+    box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+    border: 1px solid rgba(127,255,255,0.25);
+    text-align: center;
+    cursor: default;
+    transition: background .5s ease;
+    /*transition: box-shadow .5s ease, border .5s ease;*/
+    &:hover {
+        box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+        border: 1px solid rgba(127,255,255,0.75);
+    }
+}
+
+    .element .number {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 12px;
+        color: rgba(127,255,255,0.75);
+    }
+
+    .element .symbol {
+        position: absolute;
+        top: 40px;
+        left: 0px;
+        right: 0px;
+        font-size: 60px;
+        font-weight: bold;
+        color: rgba(255,255,255,0.75);
+
+        -webkit-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+        -moz-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+        -o-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+        -ms-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+        filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
+    }
+
+    .element .details {
+        position: absolute;
+        bottom: 15px;
+        left: 0px;
+        right: 0px;
+        font-size: 12px;
+        color: rgba(127,255,255,0.75);
+    }
+
+button {
+    color: rgba(127,255,255,0.75);
+    background: transparent;
+    border: 1px solid rgba(127,255,255,0.75);
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(0,255,255,0.5);
+    }
+    &:active {
+        color: #000000;
+        background-color: rgba(0,255,255,0.75);
+    }
+}
