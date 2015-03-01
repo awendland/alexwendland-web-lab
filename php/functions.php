@@ -29,12 +29,4 @@ function array_keys_exist($array, $keys) {
     }
 	return $bool;
 }
-
-function load_files_contents($array_files) {
-	$contents = [];
-	foreach($array_files as $key => $file) {
-		$contents[$file] = file_get_contents($file);
-	}
-	return $contents;
-}
 ?>
