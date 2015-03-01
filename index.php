@@ -24,6 +24,9 @@ foreach ($demoConfigFiles as $key => $value) {
 		$demos[] = $config;
 	}
 }
+usort($demos, function($o1, $o2) {
+	return strcmp($o1['name'], $o2['name']);
+});
 # END OF PHP HEADER
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
