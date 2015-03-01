@@ -1,0 +1,10 @@
+{
+    "name": "Modal Dialog",
+    "description": "A javascript initiated dialog following the model constructor pattern. Can show a title, description, positive and negative buttons.",
+    "url": "index.html",
+    "sources": {
+    	"html": ["index.html"],
+    	"js": ["js/main.js", "js/dialog.js"],
+    	"css": ["css/main.css"]
+    }
+}

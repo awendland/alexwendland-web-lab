@@ -1,0 +1,9 @@
+{
+    "name": "Number Game #2",
+    "description": "Number that is composed of unique digits from [1-9], and stays divisible by its length as the last digit is repeatedly removed.",
+    "url": "index.html",
+    "sources": {
+    	"html": ["index.html"],
+    	"js": ["main.js", "worker.js"]
+    }
+}

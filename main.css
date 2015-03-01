@@ -146,6 +146,132 @@ body {
 	}
 }
 
+#iframe {
+	height: 100%;
+}
+
+#actions, #source-tabs {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+@media screen and (min-width: 1150px) {
+	#actions, #source-tabs {
+		right: -10px;
+	}
+}
+#actions {
+	opacity: .3;
+}
+#actions:hover, #source-tabs:not(.hide) ~ #actions {
+	opacity: 1;
+}
+#actions > button, #source-tabs {
+	background: white;
+	border-radius: 4px;
+	box-shadow: 0px 1px 8px rgba(0,0,0,0.4);
+}
+#actions > button {
+	padding: 5px;
+	border: none;
+	height: 23px;
+	line-height: 13px;
+	font-size: 11px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	cursor: pointer;
+}
+#actions > button:active {
+	background: #eee;
+}
+#actions > button > svg {
+	height: 13px;
+	width: 13px;
+}
+#source-tabs {
+	padding: 10px;
+	list-style: none;
+	top: 30px;
+	transition: transform .2s, opacity .1s;
+	transform-origin: top right;
+	transform: scale(1);
+	opacity: 1;
+}
+#source-tabs.hide {
+	transform: scale(.2);
+	opacity: 0;
+}
+#source-tabs > li {
+	cursor: pointer;
+	transition: opacity .4s, border-bottom .4s;
+	opacity: .5;
+	margin-bottom: 5px;
+}
+#source-tabs > li:last-child {
+	margin-bottom: 0px;
+}
+#source-tabs > li:hover {
+	opacity: 1;
+}
+
+#source-view {
+	display: none;
+}
+#source-view.loaded {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	top: 60%;
+	left: 0;
+	right: 0;
+	background: #181914;
+	color: wheat;
+	padding-top: 10px;
+	box-shadow: 0px -1px 8px rgba(0,0,0,.2);
+}
+#source-view.loaded::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	height: 10px;
+	left: 0;
+	right: 0;
+	cursor: row-resize;
+	background: url(http://jsfiddle.net/img/handle-h.png) 50% 3px no-repeat;
+	background-color: #eee;
+	box-shadow: 0px 1px 8px rgba(0,0,0,0.2);
+}
+#source-view.loaded.resize > #top-pad {
+	content: '';
+	position: absolute;
+	top: -150px;
+	height: 150px;
+	left: 0;
+	right: 0;
+}
+#source {
+	margin: 0;
+	overflow: scroll;
+	height: 100%;
+}
+#source-name {
+	position: absolute;
+	top: 20px;
+	padding: 10px;
+	right: 10px;
+	opacity: .3;
+	border-radius: 4px;
+	background: rgba(255,255,255,.3);
+	color: white;
+	transition: opacity .5s;
+	text-decoration: none;
+	cursor: pointer;
+}
+#source-name:hover {
+	opacity: 1;
+}
+
 /*
  * Loading
  * Animation

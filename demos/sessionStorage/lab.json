@@ -1,0 +1,9 @@
+{
+    "name": "Session Storage",
+    "description": "A group of raw Javscript functions for persisting data across user sessions that fallbacks on temp storage when sessionStorage is unsupported",
+    "url": "index.html",
+    "sources": {
+    	"html": "index.html",
+    	"js": "sessionStorage.js"
+    }
+}

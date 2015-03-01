@@ -1,0 +1,9 @@
+{
+    "name": "Prime JS",
+    "description": "A javascript prime number calculator for the first 100 primes.",
+    "url": "index.html",
+    "sources": {
+    	"html": ["index.html"],
+    	"js": ["js/main.js"]
+    }
+}
