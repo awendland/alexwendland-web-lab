@@ -76,7 +76,7 @@ window.onload = function() {
 		console.log(window.innerHeight);
 		if (e.clientY + 50 < window.innerHeight) {
 			sourceView.style.top = (e.clientY - 50) + "px";
-			iframe.style.height = (e.clientY - 50) + "px";
+			iframeView.style.height = (e.clientY - 50) + "px";
 		}
     };
 	sourceView.addEventListener('mousedown', function(e) {
@@ -95,7 +95,6 @@ window.onload = function() {
 		mainView.setAttribute('data-id', currentTarget.getAttribute('data-id'));
 		mainView.setAttribute('data-url', currentTarget.getAttribute('data-url'));
 
-		var iframe = document.getElementById('iframe');
 		var navItems = document.querySelectorAll('#side-nav li');
 		for (var navIndex = 0; navIndex < navItems.length; navIndex++) {
 			navItems[navIndex].className = "";
@@ -147,24 +146,25 @@ window.onload = function() {
 		});
 
 		iframeView.innerHTML = "";
+		iframeView.style.height = null;
 		var iframe = document.createElement("iframe");
 		iframe.src = currentTarget.getAttribute('data-url');
 		iframe.scrolling = "auto";
 		iframe.frameBorder = "0";
 		iframe.width = "100%";
 		iframe.height = "100%";
-		iframe.style.display = "none";
+		iframe.style.visibility = "hidden";
 		loadingView.insert(iframeView, true);
 		iframeView.appendChild(iframe);
 
 		iframe.addEventListener("load", function() {
 			if (true) {
 				loadingView.remove();
-				iframe.style.display = "block";
+				iframe.style.visibility = "visible";
 			} else {
 				setTimeout(function() {
 					loadingView.remove();
-					iframe.style.display = "block";
+					iframe.style.visibility = "visible";
 				}, 1000);
 			}
 		});
