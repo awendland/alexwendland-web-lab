@@ -155,11 +155,6 @@ body {
 	right: 10px;
 	top: 10px;
 }
-@media screen and (min-width: 1150px) {
-	#actions, #source-tabs {
-		right: -10px;
-	}
-}
 #actions {
 	opacity: .3;
 }
@@ -201,6 +196,17 @@ body {
 #source-tabs.hide {
 	transform: scale(.2);
 	opacity: 0;
+}
+#source-tabs::before {
+	content:"";
+	position: absolute;
+	right:10px;
+	top:-8px;
+	border-color: #CBCBCB transparent;
+	border-style: solid;
+	border-width: 0px 8px 8px 8px;
+	height: 0px;
+	width: 0px;
 }
 #source-tabs > li {
 	cursor: pointer;
